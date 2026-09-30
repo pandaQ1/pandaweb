@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panda 生词高亮 &amp; 翻译助手 — 浏览英文网页的词汇学习伴侣</title>
+  <meta name="description" content="按词汇等级自动高亮生词、右键释义卡片、整页翻译、生词本与背单词复习、YouTube 字幕接管。免费开源的 Chrome / Edge 扩展。" />
+  <link rel="icon" type="image/png" href="assets/icons/icon128.png" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="./">
+        <img src="assets/icons/icon128.png" alt="Panda 图标" />
+        <span>Panda 生词助手</span>
+        <span class="ver">v2.17.9</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features" class="hide-sm">功能</a>
+        <a href="#install" class="hide-sm">下载安装</a>
+        <a href="privacy.html">隐私政策</a>
+        <button class="theme-btn" id="themeBtn" title="切换日间 / 夜间主题" aria-label="切换主题">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <img class="hero-logo" src="assets/icons/icon256.png" alt="Panda 扩展图标" />
+        <h1>读英文网页时，<span class="hl">生词</span>一目了然</h1>
+        <p class="sub">
+          Panda 生词高亮 &amp; 翻译助手：按词汇等级自动标记生词，悬停秒看释义，右键查词根词缀，
+          整页翻译多级降级，生词本 + 艾宾浩斯背单词闭环，还能接管 YouTube 字幕逐句翻译。
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#install">⬇ 下载安装</a>
+          <a class="btn btn-ghost" href="#features">了解功能</a>
+        </div>
+        <div class="hero-badges">
+          <span class="badge">🎓 8 级词库 · 10,972 词</span>
+          <span class="badge">🌐 整页翻译 · 多服务降级</span>
+          <span class="badge">📖 艾宾浩斯复习</span>
+          <span class="badge">🎬 YouTube 字幕接管</span>
+          <span class="badge">🌙 日 / 夜主题</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 功能 -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Features</div>
+          <h2>一套完整的词汇学习工作流</h2>
+          <p>从「遇到生词 → 看懂 → 收藏 → 复习掌握」的完整闭环，全部在浏览器里完成。</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <div class="ico">🖍️</div>
+            <h3>等级词库高亮</h3>
+            <p>小学 / 初中 / 高中 / 四级 / 六级 / 考研 / 托福 / SAT 八级词库（共 10,972 词，离线内置），按所选等级精准高亮，白名单判定不误标人名与俚语。</p>
+            <span class="tag">离线词库</span>
+          </div>
+          <div class="card">
+            <div class="ico">🖱️</div>
+            <h3>悬停简译 + 右键释义卡片</h3>
+            <p>鼠标悬停即弹出简略翻译；右键（或按 A 键）打开详细卡片——音标、释义、词根词缀、关联词汇，三级词典兜底 + AI 兜底，点击即发音。</p>
+            <span class="tag">词根词缀</span>
+          </div>
+          <div class="card">
+            <div class="ico">🌐</div>
+            <h3>网页整页翻译</h3>
+            <p>Edge 免 token 批量翻译（20 句/批，快约 30 倍）+ MyMemory / 有道 / Bing / Google / 自定义 AI 多级自动降级；对照 / 覆盖两种显示模式。</p>
+            <span class="tag">多级降级</span>
+          </div>
+          <div class="card">
+            <div class="ico">🎬</div>
+            <h3>YouTube 字幕接管</h3>
+            <p>接管原生字幕条，按句末标点整句显示；timedtext 时间轴驱动零延迟切换，支持逐句 / 逐词翻译两种模式，看完一个视频顺便学完生词。</p>
+            <span class="tag">逐句 / 逐词</span>
+          </div>
+          <div class="card">
+            <div class="ico">📖</div>
+            <h3>生词本 + 背单词</h3>
+            <p>右键一键收藏生词（自动保存语境句）；独立背单词模块按每日强度学习，艾宾浩斯间隔复习（认识 / 模糊 / 忘记三键反馈），数据统计曲线。</p>
+            <span class="tag">艾宾浩斯</span>
+          </div>
+          <div class="card">
+            <div class="ico">🔊</div>
+            <h3>TTS 发音自定义</h3>
+            <p>本地离线 TTS 或在线引擎（有道 / 谷歌 / OpenAI 兼容接口），语速可调，自动降级策略保证离线也能发音；日 / 夜主题跟随设置同步。</p>
+            <span class="tag">本地优先</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 下载安装 -->
+    <section class="section" id="install">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Download</div>
+          <h2>下载安装</h2>
+          <p>推荐从浏览器官方商店安装（自动更新）；也可用 zip 包手动加载。</p>
+        </div>
+
+        <div class="stores">
+          <a class="store" href="https://microsoftedge.microsoft.com/addons" target="_blank" rel="noopener">
+            <div class="ico">🧭</div>
+            <div>
+              <h3>Edge 加载项商店</h3>
+              <p>已提交审核 · 即将上线，敬请期待</p>
+            </div>
+          </a>
+          <a class="store" href="https://chromewebstore.google.com" target="_blank" rel="noopener">
+            <div class="ico">🧩</div>
+            <div>
+              <h3>Chrome 网上应用店</h3>
+              <p>规划中 · 可先用手动安装</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="section-head" style="margin-top:52px">
+          <h2 style="font-size:22px">手动安装（开发者模式）</h2>
+          <p>适用于 Edge / Chrome / 其他 Chromium 内核浏览器，约 1 分钟。</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <h3>下载 zip 包</h3>
+            <p>下载 <code>word-highlighter-v2.17.9.zip</code> 并解压到任意固定位置（安装后不要删除该文件夹）。</p>
+          </div>
+          <div class="step">
+            <h3>打开扩展管理页</h3>
+            <p>地址栏输入 <code>edge://extensions</code>（Chrome 为 <code>chrome://extensions</code>）回车。</p>
+          </div>
+          <div class="step">
+            <h3>开启开发者模式</h3>
+            <p>打开页面左侧（或右上角）的「开发人员模式 / 开发者模式」开关。</p>
+          </div>
+          <div class="step">
+            <h3>加载扩展</h3>
+            <p>点击「加载解压缩的扩展」，选择解压出的 <code>word-highlighter</code> 文件夹，完成 ✅</p>
+          </div>
+        </div>
+        <p class="install-cta">
+          <a class="btn btn-primary" href="https://github.com/" target="_blank" rel="noopener">⬇ 获取 zip 安装包</a>
+        </p>
+        <p class="note">提示：手动安装的扩展不会自动更新，新版本请在同一页面点「重新加载」。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand" href="./">
+        <img src="assets/icons/icon128.png" alt="" />
+        <span>Panda 生词高亮 &amp; 翻译助手</span>
+      </a>
+      <nav>
+        <a href="#features">功能</a>
+        <a href="#install">下载安装</a>
+        <a href="privacy.html">隐私政策</a>
+      </nav>
+      <p class="copy">© 2026 Panda 生词助手 · 本站由 GitHub Pages 托管</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('themeBtn');
+      var root = document.documentElement;
+      var saved = null;
+      try { saved = localStorage.getItem('site-theme'); } catch (e) {}
+      var apply = function (t) {
+        root.setAttribute('data-theme', t);
+        btn.textContent = t === 'dark' ? '☀️' : '🌙';
+      };
+      apply(saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+      btn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        apply(next);
+        try { localStorage.setItem('site-theme', next); } catch (e) {}
+      });
+    })();
+  </script>
+</body>
+</html>
