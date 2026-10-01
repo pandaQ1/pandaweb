@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我的账号 — Panda 生词高亮 &amp; 翻译助手</title>
+  <link rel="icon" type="image/png" href="assets/icons/icon128.png" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="./">
+        <img src="assets/icons/icon128.png" alt="Panda 图标" />
+        <span>Panda 生词助手</span>
+        <span class="ver">v2.17.9</span>
+      </a>
+      <nav class="nav-links">
+        <a href="./#features" class="hide-sm">功能</a>
+        <a href="./#install" class="hide-sm">下载安装</a>
+        <a href="privacy.html">隐私政策</a>
+        <a href="account.html">账号</a>
+        <button class="theme-btn" id="themeBtn" title="切换日间 / 夜间主题" aria-label="切换主题">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container page-head">
+      <h1>我的账号</h1>
+      <p class="meta">账号在官网与浏览器扩展中通用 —— 同一邮箱，同一会员权益。</p>
+    </div>
+
+    <div class="container doc" style="max-width:560px">
+
+      <!-- 未登录：登录 / 注册 -->
+      <div class="auth-card" id="authLogin">
+        <h2 style="font-size:18px;font-weight:650;margin-bottom:4px">登录 / 注册</h2>
+        <p style="font-size:13px;color:var(--text-sub);margin-bottom:18px">注册即创建 Panda 账号，用于管理会员权益；后续将支持生词本云同步。</p>
+        <div class="auth-form">
+          <label>邮箱
+            <input type="email" id="authEmail" placeholder="you@example.com" autocomplete="email" />
+          </label>
+          <label>密码
+            <input type="password" id="authPass" placeholder="至少 6 位" autocomplete="current-password" />
+          </label>
+        </div>
+        <div class="auth-actions">
+          <button class="btn btn-primary" id="authLoginBtn" type="button">登录</button>
+          <button class="btn btn-ghost" id="authSignupBtn" type="button">注册</button>
+        </div>
+        <p class="auth-msg" id="authMsg"></p>
+        <p class="auth-tip">忘记密码请联系开发者。会话仅保存在当前浏览器中。</p>
+      </div>
+
+      <!-- 已登录：账号信息 -->
+      <div class="auth-card hidden" id="authInfo">
+        <h2 style="font-size:18px;font-weight:650;margin-bottom:18px">账号信息</h2>
+        <div class="auth-row">
+          <span class="auth-k">邮箱</span>
+          <span id="infoEmail">—</span>
+        </div>
+        <div class="auth-row">
+          <span class="auth-k">会员状态</span>
+          <span class="auth-plan">
+            <span class="pro-badge" id="infoBadge">免费版</span>
+            <span id="infoPlan" style="font-size:13px;color:var(--text-sub)"></span>
+          </span>
+        </div>
+        <div class="auth-actions" style="margin-top:22px">
+          <button class="btn btn-primary" id="authRefreshBtn" type="button">刷新状态</button>
+          <button class="btn btn-ghost" id="authLogoutBtn" type="button">退出登录</button>
+        </div>
+        <p class="auth-msg" id="infoMsg"></p>
+        <p class="auth-tip">在浏览器扩展的「设置 → 账号」中登录同一邮箱，会员权益自动同步。</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand" href="./">
+        <img src="assets/icons/icon128.png" alt="" />
+        <span>Panda 生词高亮 &amp; 翻译助手</span>
+      </a>
+      <nav>
+        <a href="./#features">功能</a>
+        <a href="./#install">下载安装</a>
+        <a href="privacy.html">隐私政策</a>
+      </nav>
+      <p class="copy">© 2026 Panda 生词助手 · 本站由 GitHub Pages 托管</p>
+    </div>
+  </footer>
+
+  <script src="assets/auth.js"></script>
+  <script>
+    (function () {
+      // 主题切换（与首页一致）
+      var btn = document.getElementById('themeBtn');
+      var root = document.documentElement;
+      var saved = null;
+      try { saved = localStorage.getItem('site-theme'); } catch (e) {}
+      var apply = function (t) {
+        root.setAttribute('data-theme', t);
+        btn.textContent = t === 'dark' ? '☀️' : '🌙';
+      };
+      apply(saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+      btn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        apply(next);
+        try { localStorage.setItem('site-theme', next); } catch (e) {}
+      });
+    })();
+
+    (function () {
+      if (typeof SiteAuth === "undefined") return;
+      var $ = function (id) { return document.getElementById(id); };
+      var loginCard = $("authLogin"), infoCard = $("authInfo");
+      var emailInput = $("authEmail"), passInput = $("authPass");
+      var msgEl = $("authMsg"), infoMsg = $("infoMsg");
+      var busy = false;
+
+      function say(el, text, isErr) {
+        el.textContent = text || "";
+        el.classList.toggle("err", !!isErr);
+      }
+      function fmtDate(iso) {
+        if (!iso) return "永久";
+        try {
+          var d = new Date(iso);
+          return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+        } catch (e) { return String(iso); }
+      }
+
+      function refreshUI() {
+        return SiteAuth.getMembership().then(function (m) {
+          if (m.signed_in) {
+            loginCard.classList.add("hidden");
+            infoCard.classList.remove("hidden");
+            $("infoEmail").textContent = m.email || "—";
+            $("infoBadge").textContent = m.pro ? "PRO" : "免费版";
+            $("infoBadge").classList.toggle("pro", !!m.pro);
+            $("infoPlan").textContent = m.pro
+              ? "Pro 会员 · 有效期至 " + fmtDate(m.expires_at)
+              : (m.reason || "免费版，升级后解锁会员功能");
+          } else {
+            loginCard.classList.remove("hidden");
+            infoCard.classList.add("hidden");
+            if (m.reason && m.reason.indexOf("失效") >= 0) say(msgEl, m.reason, true);
+          }
+          return m;
+        });
+      }
+
+      function creds() {
+        var email = String(emailInput.value || "").trim();
+        var pass = String(passInput.value || "");
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say(msgEl, "请输入有效的邮箱地址", true); return null; }
+        if (pass.length < 6) { say(msgEl, "密码至少 6 位", true); return null; }
+        return { email: email, pass: pass };
+      }
+
+      function doLogin() {
+        if (busy) return;
+        var c = creds(); if (!c) return;
+        busy = true; say(msgEl, "登录中…");
+        SiteAuth.signIn(c.email, c.pass).then(function () {
+          passInput.value = "";
+          say(msgEl, "登录成功");
+          return refreshUI();
+        }).catch(function (e) {
+          say(msgEl, e.message || "登录失败", true);
+        }).then(function () { busy = false; });
+      }
+
+      function doSignup() {
+        if (busy) return;
+        var c = creds(); if (!c) return;
+        busy = true; say(msgEl, "注册中…");
+        SiteAuth.signUp(c.email, c.pass).then(function (r) {
+          if (r.needConfirm) {
+            say(msgEl, "注册成功！请到邮箱查收验证邮件后再登录");
+          } else {
+            passInput.value = "";
+            say(msgEl, "注册成功，已自动登录");
+            return refreshUI();
+          }
+        }).catch(function (e) {
+          say(msgEl, e.message || "注册失败", true);
+        }).then(function () { busy = false; });
+      }
+
+      function doLogout() {
+        if (busy) return;
+        busy = true;
+        SiteAuth.signOut().then(function () {
+          emailInput.value = ""; passInput.value = "";
+          say(infoMsg, "");
+          say(msgEl, "已退出登录");
+          return refreshUI();
+        }).catch(function (e) {
+          say(infoMsg, "退出失败：" + (e.message || e), true);
+        }).then(function () { busy = false; });
+      }
+
+      $("authLoginBtn").addEventListener("click", doLogin);
+      $("authSignupBtn").addEventListener("click", doSignup);
+      $("authLogoutBtn").addEventListener("click", doLogout);
+      $("authRefreshBtn").addEventListener("click", function () {
+        say(infoMsg, "刷新中…");
+        refreshUI().then(function (m) { say(infoMsg, m && m.signed_in ? "已刷新" : ""); });
+      });
+      passInput.addEventListener("keydown", function (e) { if (e.key === "Enter") doLogin(); });
+
+      refreshUI();
+    })();
+  </script>
+</body>
+</html>
