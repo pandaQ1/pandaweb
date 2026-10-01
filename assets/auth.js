@@ -132,6 +132,29 @@
       }).catch(function (e) {
         return { signed_in: false, pro: false, plan: "free", reason: "网络错误：" + (e.message || e) };
       });
+    },
+    /** 兑换码激活会员（服务端原子处理，防并发重复使用）。成功返回 { ok, plan, expires_at } */
+    redeemCode: function (code) {
+      return this.getSession().then(function (s) {
+        if (!s) throw new Error("请先登录后再兑换");
+        return fetchRetry(SUPA_URL + "/rest/v1/rpc/redeem_code", {
+          method: "POST",
+          headers: { apikey: SUPA_KEY, "Content-Type": "application/json", Authorization: "Bearer " + s.access_token },
+          body: JSON.stringify({ p_code: String(code || "").trim() })
+        }, 2);
+      }).then(function (r) {
+        return r.json().catch(function () { return null; }).then(function (data) {
+          if (!r.ok || !data || data.ok !== true) {
+            var err = data && data.error;
+            throw new Error(
+              err === "invalid_or_used" ? "兑换码无效或已被使用"
+              : err === "not_signed_in" ? "请先登录后再兑换"
+              : "兑换失败(HTTP " + r.status + ")，请稍后重试"
+            );
+          }
+          return data;
+        });
+      });
     }
   };
 })();

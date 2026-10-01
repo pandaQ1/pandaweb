@@ -253,6 +253,15 @@ table.data td:first-child { color: var(--text); font-weight: 500; white-space: n
   color: #9a6700; background: #fff3c4; border-color: #f0d47a;
 }
 html[data-theme="dark"] .pro-badge.pro { color: #ffd80b; background: rgba(240, 212, 122, .14); }
+.auth-redeem { display: flex; gap: 10px; flex-wrap: wrap; }
+.auth-redeem input {
+  flex: 1; min-width: 200px; padding: 10px 14px; font-size: 14px; font-family: inherit;
+  border: 1px solid var(--border); border-radius: 10px; outline: none;
+  background: var(--bg-subtle); color: var(--text);
+  transition: border-color .25s var(--ease), box-shadow .25s var(--ease);
+}
+.auth-redeem input:focus { border-color: var(--border-strong); box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 15%, transparent); }
+.auth-redeem .btn { padding: 10px 24px; font-size: 14px; flex: none; }
 .hidden { display: none !important; }
 
 @media (prefers-reduced-motion: reduce) {

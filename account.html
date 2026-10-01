@@ -67,6 +67,13 @@
             <span id="infoPlan" style="font-size:13px;color:var(--text-sub)"></span>
           </span>
         </div>
+        <div class="auth-row" style="flex-direction:column;align-items:stretch;gap:10px">
+          <span class="auth-k">兑换码激活</span>
+          <div class="auth-redeem">
+            <input type="text" id="redeemInput" placeholder="如 PANDA-XXXX-XXXX-XXXX" />
+            <button class="btn btn-primary" id="redeemBtn" type="button">兑换</button>
+          </div>
+        </div>
         <div class="auth-actions" style="margin-top:22px">
           <button class="btn btn-primary" id="authRefreshBtn" type="button">刷新状态</button>
           <button class="btn btn-ghost" id="authLogoutBtn" type="button">退出登录</button>
@@ -212,6 +219,23 @@
         refreshUI().then(function (m) { say(infoMsg, m && m.signed_in ? "已刷新" : ""); });
       });
       passInput.addEventListener("keydown", function (e) { if (e.key === "Enter") doLogin(); });
+
+      function doRedeem() {
+        if (busy) return;
+        var input = $("redeemInput");
+        var code = String(input.value || "").trim();
+        if (!code) { say(infoMsg, "请输入兑换码", true); return; }
+        busy = true; say(infoMsg, "兑换中…");
+        SiteAuth.redeemCode(code).then(function (r) {
+          input.value = "";
+          say(infoMsg, "兑换成功！Pro 会员有效期至 " + fmtDate(r.expires_at));
+          return refreshUI();
+        }).catch(function (e) {
+          say(infoMsg, e.message || "兑换失败", true);
+        }).then(function () { busy = false; });
+      }
+      $("redeemBtn").addEventListener("click", doRedeem);
+      $("redeemInput").addEventListener("keydown", function (e) { if (e.key === "Enter") doRedeem(); });
 
       refreshUI();
     })();
