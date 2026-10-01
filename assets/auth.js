@@ -24,12 +24,25 @@
     return msg || "请求失败";
   }
 
+  function fetchRetry(url, opts, tries) {
+    // 网络失败自动重试：supabase.co 在部分网络下被间歇性阻断（连接重置），重试常能成功
+    return new Promise(function (resolve, reject) {
+      var attempt = function (n) {
+        fetch(url, opts).then(resolve, function (e) {
+          if (n < tries) setTimeout(function () { attempt(n + 1); }, 700 * (n + 1));
+          else reject(e);
+        });
+      };
+      attempt(0);
+    });
+  }
+
   function callAuth(path, body) {
-    return fetch(SUPA_URL + "/auth/v1/" + path, {
+    return fetchRetry(SUPA_URL + "/auth/v1/" + path, {
       method: "POST",
       headers: { apikey: SUPA_KEY, "Content-Type": "application/json" },
       body: JSON.stringify(body)
-    }).then(function (r) {
+    }, 2).then(function (r) {
       return r.json().catch(function () { return null; }).then(function (data) {
         if (!r.ok || !data) {
           var raw = (data && (data.msg || data.error_description || data.error)) || ("HTTP " + r.status);
@@ -86,9 +99,9 @@
       return this.getSession().then(function (s) {
         if (!s) return { signed_in: false, pro: false, plan: "free", reason: "未登录" };
         var query = function (token) {
-          return fetch(SUPA_URL + "/rest/v1/memberships?select=plan,expires_at", {
+          return fetchRetry(SUPA_URL + "/rest/v1/memberships?select=plan,expires_at", {
             headers: { apikey: SUPA_KEY, Authorization: "Bearer " + token }
-          });
+          }, 2);
         };
         return query(s.access_token).then(function (r) {
           if (r.status === 401 || r.status === 403) {
