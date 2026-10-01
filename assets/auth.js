@@ -28,9 +28,9 @@
     // 网络失败自动重试：supabase.co 在部分网络下被间歇性阻断（连接重置），重试常能成功
     return new Promise(function (resolve, reject) {
       var attempt = function (n) {
-        fetch(url, opts).then(resolve, function (e) {
+        fetch(url, opts).then(resolve, function () {
           if (n < tries) setTimeout(function () { attempt(n + 1); }, 700 * (n + 1));
-          else reject(e);
+          else reject(new Error("无法连接账号服务：当前网络可能阻断了 Supabase，请开启代理或更换网络后重试"));
         });
       };
       attempt(0);
