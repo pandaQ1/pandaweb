@@ -6,12 +6,12 @@
 
 | 文件 | 版本 | 大小 | 日期 |
 | --- | --- | --- | --- |
-| `panda-word-highlighter-2.18.4.zip` | v2.18.4 | 488 KB | 2026-10-20 |
-| `panda-word-highlighter-latest.zip` | 同上（固定链接） | 488 KB | 2026-10-20 |
+| `panda-word-highlighter-2.19.0.zip` | v2.19.0 | 490 KB | 2026-10-20 |
+| `panda-word-highlighter-latest.zip` | 同上（固定链接） | 490 KB | 2026-10-20 |
 
-- **SHA-256**：`5ac2aced0f461a4c208557b309c6b68972ef336c9a3c1e604dc64205eeab516d`
-- 校验命令（Windows）：`Get-FileHash .\panda-word-highlighter-2.18.4.zip -Algorithm SHA256`
-- 校验命令（macOS / Linux）：`shasum -a 256 panda-word-highlighter-2.18.4.zip`
+- **SHA-256**：`3c0685e36514070ddefcd65bd9dfb1e26ce077edd2b329876807f38c2aebcd9e`
+- 校验命令（Windows）：`Get-FileHash .\panda-word-highlighter-2.19.0.zip -Algorithm SHA256`
+- 校验命令（macOS / Linux）：`shasum -a 256 panda-word-highlighter-2.19.0.zip`
 
 `latest` 是给官网固定链接用的副本：每次发版把它替换成新包，页面上的「最新版（固定链接）」按钮就不会失效；带版本号的文件用于留档和校验。
 
