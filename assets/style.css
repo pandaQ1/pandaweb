@@ -73,6 +73,15 @@ a { color: inherit; text-decoration: none; }
 }
 .theme-btn:hover { transform: translateY(-1px); border-color: var(--border-strong); }
 @media (max-width: 640px) { .nav-links a.hide-sm { display: none; } }
+@media (max-width: 640px) {
+  .brand { gap: 8px; font-size: 15px; white-space: nowrap; }
+  .brand .ver { display: none; }
+  .nav-links a { padding: 7px 10px; font-size: 13.5px; }
+  .dl { padding: 20px; }
+  .dl-main { min-width: 0; }
+  .dl-actions { width: 100%; }
+  .dl-actions .btn { flex: 1; justify-content: center; }
+}
 
 /* ---------- Hero ---------- */
 .hero { padding: 88px 0 72px; text-align: center; position: relative; overflow: hidden; }
@@ -120,7 +129,7 @@ a { color: inherit; text-decoration: none; }
 .section-head p { color: var(--text-sub); max-width: 560px; margin: 12px auto 0; font-size: 15px; }
 
 /* 功能卡片 */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px; }
 .card {
   background: var(--card); border: 1px solid var(--border); border-radius: 16px;
   padding: 26px 24px; transition: all .3s var(--ease);
@@ -139,7 +148,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* 安装步骤 */
-.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; counter-reset: step; }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 16px; counter-reset: step; }
 .step {
   background: var(--card); border: 1px solid var(--border); border-radius: 16px;
   padding: 24px; position: relative; transition: all .3s var(--ease);
@@ -159,14 +168,51 @@ a { color: inherit; text-decoration: none; }
   font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
   font-size: 12.5px; background: var(--bg-sunken); border: 1px solid var(--border);
   border-radius: 6px; padding: 1px 7px; color: var(--text);
+  overflow-wrap: anywhere; word-break: break-word;
 }
+.step { min-width: 0; }
+.step p { overflow-wrap: anywhere; }
 .install-cta { text-align: center; margin-top: 40px; }
 .note {
   font-size: 13px; color: var(--text-faint); margin-top: 16px; text-align: center;
 }
 
+/* 直链下载卡片 */
+.dl {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+  padding: 24px 26px; box-shadow: var(--shadow);
+}
+.dl-main { display: flex; align-items: center; gap: 16px; min-width: 280px; }
+.dl-main .ico {
+  width: 52px; height: 52px; border-radius: 14px; flex: none;
+  display: grid; place-items: center; font-size: 26px; background: var(--bg-sunken);
+}
+.dl-main h3 { font-size: 17px; font-weight: 650; letter-spacing: -.01em; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.dl-ver {
+  font-size: 12px; font-weight: 600; color: var(--blue);
+  background: color-mix(in srgb, var(--blue) 10%, transparent);
+  border-radius: 999px; padding: 2px 10px; font-variant-numeric: tabular-nums;
+}
+.dl-main p { font-size: 13.5px; color: var(--text-sub); margin-top: 2px; }
+.dl-meta {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;
+  font-size: 12.5px; color: var(--text-faint); font-variant-numeric: tabular-nums;
+}
+.dl-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.dl-actions .btn { padding: 10px 20px; font-size: 14px; }
+.dl-hash {
+  text-align: center; margin-top: 14px; font-size: 12px; color: var(--text-faint);
+  word-break: break-all;
+}
+.dl-hash code {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 11.5px;
+  background: var(--bg-sunken); border: 1px solid var(--border); border-radius: 5px;
+  padding: 1px 6px; color: var(--text-sub);
+}
+
 /* 商店卡片 */
-.stores { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.stores { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 16px; }
 .store {
   display: flex; align-items: center; gap: 16px;
   background: var(--card); border: 1px solid var(--border); border-radius: 16px;
