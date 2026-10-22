@@ -8,7 +8,7 @@ window.PANDA_SITE = {
   "archiveUrl": "https://github.com/pandaQ1/pandaweb",
   "accountPage": "account.html",
   "privacyPage": "privacy.html",
-  "generatedAt": "2026-10-22T07:23:22.792Z",
+  "generatedAt": "2026-10-22T08:22:34.490Z",
   "archive": "D:\\桌面\\ai压缩包"
 };
 window.PANDA_PLUGINS = [
@@ -198,6 +198,7 @@ window.PANDA_PLUGINS = [
         "status": "规划中 · 先用 zip 安装"
       }
     },
+    "minBrowser": "111",
     "download": {
       "version": "2.19.4",
       "file": "downloads/word-highlighter-v2.19.4.zip",
@@ -389,6 +390,7 @@ window.PANDA_PLUGINS = [
         "status": "规划中 · 先用 zip 安装"
       }
     },
+    "minBrowser": "102",
     "download": {
       "version": "2.1.0",
       "file": "downloads/video-control-v2.1.0.zip",
@@ -537,6 +539,7 @@ window.PANDA_PLUGINS = [
         "status": "规划中 · 先用 zip 安装"
       }
     },
+    "minBrowser": "111",
     "download": {
       "version": "1.1.9",
       "file": "downloads/bilibili-helper-v1.1.9.zip",
@@ -738,6 +741,7 @@ window.PANDA_PLUGINS = [
         "status": "规划中 · 先用 zip 安装"
       }
     },
+    "minBrowser": "109",
     "download": {
       "version": "1.0.8",
       "file": "downloads/bilibili-downloader-v1.0.8.zip",

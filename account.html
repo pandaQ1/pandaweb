@@ -85,12 +85,13 @@
   <div id="siteFooter"></div>
 
   <script src="assets/plugins.data.js"></script>
+  <script src="assets/ui.js"></script>
   <script src="assets/app.js"></script>
   <script src="assets/auth.js"></script>
   <script>
     (function () {
       // 复用官网统一的导航 / 页脚（含插件切换器与主题按钮）
-      var A = window.PandaSite;
+      var A = window.PandaUI;
       if (!A) return;
       var nav = document.getElementById('siteNav');
       var foot = document.getElementById('siteFooter');

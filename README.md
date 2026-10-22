@@ -12,14 +12,17 @@
 | `index.html` | 首页 + 插件详情（hash 路由：`#/`、`#/p/<插件id>`） |
 | `privacy.html` | 隐私政策：`privacy.html` 是索引，`privacy.html?p=<插件id>` 是单个插件的政策 |
 | `account.html` | Panda 账号 / 会员 / 兑换码（Supabase Auth） |
-| `assets/app.js` | 路由、插件切换器、详情页渲染 |
+| `assets/ui.js` | 组件层：转义、图标、导航（含插件切换器）、页脚、chips、**商店小按钮**、安装包信息、主题、复制 |
+| `assets/app.js` | 路由 + 页面拼装（首页 / 插件详情） |
 | `assets/privacy.js` | 隐私政策页渲染 |
+| `assets/fx.js` | 动效层：视差滚动、滚动入场、卡片光斑、数字滚动、顶部阅读进度（尊重 `prefers-reduced-motion`） |
 | `assets/plugins.data.js` | **自动生成**的站点数据（内容 + 版本 + 大小 + SHA-256） |
-| `data/plugins.json` | **手写**的插件内容源（介绍、功能、权限、隐私条款） |
+| `data/plugins.json` | **手写**的插件内容源（介绍、功能、权限、隐私条款、商店状态、最低浏览器版本） |
 | `downloads/` | 安装包（`<插件id>-v<版本>.zip` 与固定链接 `<插件id>-latest.zip`） |
 | `tools/build.mjs` | 扫描压缩包目录 → 取每个插件最高版本 → 落地下载文件 + 生成数据 |
-| `tools/check-site.mjs` | 站点自检（在 DOM 垫片里真实执行前端脚本，校验文案 / 链接 / 哈希） |
+| `tools/check-site.mjs` | 站点自检（DOM 垫片里真实跑前端脚本，156 项：结构 / 文案 / 链接 / 哈希 / 样式类 / 视差安全） |
 | `tools/serve.mjs` | 本地预览服务器 |
+| `tools/deploy.mjs` | 走 GitHub REST API 发布（不需要本地 git） |
 
 ## 新增一个插件（标准流程）
 

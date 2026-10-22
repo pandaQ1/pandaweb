@@ -195,7 +195,8 @@
           "url": null,
           "status": "规划中 · 先用 zip 安装"
         }
-      }
+      },
+      "minBrowser": "111"
     },
     {
       "id": "video-control",
@@ -375,7 +376,8 @@
           "url": null,
           "status": "规划中 · 先用 zip 安装"
         }
-      }
+      },
+      "minBrowser": "102"
     },
     {
       "id": "bilibili-helper",
@@ -512,7 +514,8 @@
           "url": null,
           "status": "规划中 · 先用 zip 安装"
         }
-      }
+      },
+      "minBrowser": "111"
     },
     {
       "id": "bilibili-downloader",
@@ -702,7 +705,8 @@
           "url": null,
           "status": "规划中 · 先用 zip 安装"
         }
-      }
+      },
+      "minBrowser": "109"
     }
   ]
 }
