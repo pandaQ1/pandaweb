@@ -129,6 +129,8 @@ assert(count(hub, /class="store-pill[\s"]/g) === plugins.length * 2, `每张卡�
 assert(count(hub, /data-parallax="/g) >= 2, '首页有视差层（data-parallax）');
 assert(count(hub, /data-reveal/g) >= 8, '首页有入场动画标记（data-reveal）');
 assert(hub.includes('data-goto="plugins"') && hub.includes('data-goto="install"'), '导航「插件 / 安装」用平滑滚动');
+assert(hub.includes('class="scroll-cue"') && /class="scroll-cue"[^>]*data-goto="plugins"/.test(hub), 'hero 底部有下滑提示箭头（指向插件区）');
+assert(hub.includes('aria-label="向下查看全部插件"'), '下滑箭头有可读标签');
 assert(hub.includes('为什么点一下不能自动装进浏览器'), '首页含「自动安装」说明');
 assert(hub.includes('本地优先') && hub.includes('不注入远程代码'), '首页含「做插件的几条底线」');
 for (const p of plugins) {
@@ -269,6 +271,12 @@ try {
 assert(!fxError, fxError ? `执行报错：${fxError.message}` : 'ui.js + fx.js + app.js 依次执行无异常');
 assert(appended.includes('fxProgress'), 'fx.js 注入了顶部阅读进度条');
 assert(domFx.appEl.innerHTML.includes('class="pcard"'), 'fx.js 加载后首页仍能正常渲染');
+
+console.log('\n[12] 文字可读性守卫');
+assert(!/background-clip:\s*text\s*;/i.test(css), 'CSS 不用 background-clip:text（避免字取色失败后透明看不见）');
+assert(/\.hub-hero h1 \.hl\s*\{[^}]*color:\s*var\(--text\)/.test(css), '主标题强调词用实心文字色');
+assert(/@keyframes cueBob/.test(css) && /\.cue-arrow\s*\{[^}]*animation:/.test(css), '下滑箭头有独立动画');
+assert(/(prefers-reduced-motion)[\s\S]*animation:\s*none/.test(css), 'reduced-motion 会关掉箭头动画');
 
 console.log(`\n结果：${checks - fails}/${checks} 通过${fails ? `，${fails} 项失败` : ''}`);
 process.exit(fails ? 1 : 0);

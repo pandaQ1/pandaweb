@@ -177,7 +177,7 @@ body.is-scrolled .nav { border-bottom-color: var(--border-strong); box-shadow: 0
 .mini-copy.ok { color: var(--blue); border-color: currentColor; }
 
 /* ---------- 首页 Hero（视差背景） ---------- */
-.hub-hero { position: relative; padding: 96px 0 76px; text-align: center; overflow: hidden; }
+.hub-hero { position: relative; padding: 96px 0 76px; text-align: center; overflow: visible; }
 .hero-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 .glow {
   position: absolute; top: -180px; left: 50%; width: min(900px, 96vw); height: 460px;
@@ -206,9 +206,39 @@ body.is-scrolled .nav { border-bottom-color: var(--border-strong); box-shadow: 0
   color: var(--blue); margin-bottom: 14px;
 }
 .hub-hero h1 { font-size: clamp(30px, 5.2vw, 50px); font-weight: 700; letter-spacing: -.028em; line-height: 1.18; }
+/* 强调词：实心字 + 淡蓝马克笔底（不用文字裁剪取色，避免取色失败后字看不见） */
 .hub-hero h1 .hl {
-  background: linear-gradient(100deg, var(--text) 20%, var(--text-faint) 90%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+  color: var(--text);
+  background-image: linear-gradient(to top,
+    color-mix(in srgb, var(--blue) 22%, transparent) .34em,
+    transparent .34em);
+  background-repeat: no-repeat;
+  padding: 0 .05em;
+  border-radius: 3px;
+}
+
+/* hero 底部的下滑提示（骑在区块分隔线上） */
+.scroll-cue {
+  position: absolute; left: 50%; bottom: -22px; z-index: 3;
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--bg); border: 1px solid var(--border-strong); color: var(--text-sub);
+  box-shadow: var(--shadow-sm); transform: translateX(-50%);
+  transition: color .22s var(--ease), border-color .22s var(--ease),
+              box-shadow .22s var(--ease), transform .22s var(--ease), background .22s var(--ease);
+}
+.scroll-cue:hover {
+  color: var(--text); border-color: var(--text-faint); background: var(--bg-subtle);
+  box-shadow: var(--shadow); transform: translateX(-50%) translateY(2px);
+}
+.scroll-cue:active { transform: translateX(-50%) translateY(3px) scale(.97); }
+.cue-arrow {
+  display: block; font-size: 15px; line-height: 1;
+  animation: cueBob 1.9s var(--ease) infinite;
+}
+@keyframes cueBob {
+  0%, 100% { transform: translateY(-2px); opacity: .75; }
+  50% { transform: translateY(2px); opacity: 1; }
 }
 .hub-hero .sub {
   font-size: clamp(15px, 1.6vw, 17px); color: var(--text-sub);

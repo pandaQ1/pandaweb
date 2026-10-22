@@ -149,6 +149,9 @@
               '<div class="stat"><b>' + esc(newest && newest.download ? 'v' + newest.download.version : '—') + '</b><span>最近更新</span></div>' +
             '</div>' +
           '</div>' +
+          '<a class="scroll-cue" href="#/" data-goto="plugins" aria-label="向下查看全部插件">' +
+            '<span class="cue-arrow" aria-hidden="true">↓</span>' +
+          '</a>' +
         '</section>' +
 
         '<section class="section" id="plugins">' +
