@@ -3,27 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我的账号 — Panda 生词高亮 &amp; 翻译助手</title>
+  <title>我的账号 — Panda 插件中心</title>
+  <meta name="description" content="Panda 账号：官网与所有浏览器扩展共用同一账号，登录后可查看会员状态、兑换 PRO。" />
   <link rel="icon" type="image/png" href="assets/icons/icon128.png" />
   <link rel="stylesheet" href="assets/style.css" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('site-theme');
+        if (t !== 'dark' && t !== 'light') {
+          t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { /* ignore */ }
+    })();
+  </script>
 </head>
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="./">
-        <img src="assets/icons/icon128.png" alt="Panda 图标" />
-        <span>Panda 生词助手</span>
-        <span class="ver">v2.17.9</span>
-      </a>
-      <nav class="nav-links">
-        <a href="./#features" class="hide-sm">功能</a>
-        <a href="./#install" class="hide-sm">下载安装</a>
-        <a href="privacy.html">隐私政策</a>
-        <a href="account.html">账号</a>
-        <button class="theme-btn" id="themeBtn" title="切换日间 / 夜间主题" aria-label="切换主题">🌙</button>
-      </nav>
-    </div>
-  </header>
+  <div id="siteNav"></div>
 
   <main>
     <div class="container page-head">
@@ -85,39 +82,21 @@
     </div>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <a class="brand" href="./">
-        <img src="assets/icons/icon128.png" alt="" />
-        <span>Panda 生词高亮 &amp; 翻译助手</span>
-      </a>
-      <nav>
-        <a href="./#features">功能</a>
-        <a href="./#install">下载安装</a>
-        <a href="privacy.html">隐私政策</a>
-      </nav>
-      <p class="copy">© 2026 Panda 生词助手 · 本站由 GitHub Pages 托管</p>
-    </div>
-  </footer>
+  <div id="siteFooter"></div>
 
+  <script src="assets/plugins.data.js"></script>
+  <script src="assets/app.js"></script>
   <script src="assets/auth.js"></script>
   <script>
     (function () {
-      // 主题切换（与首页一致）
-      var btn = document.getElementById('themeBtn');
-      var root = document.documentElement;
-      var saved = null;
-      try { saved = localStorage.getItem('site-theme'); } catch (e) {}
-      var apply = function (t) {
-        root.setAttribute('data-theme', t);
-        btn.textContent = t === 'dark' ? '☀️' : '🌙';
-      };
-      apply(saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
-      btn.addEventListener('click', function () {
-        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        apply(next);
-        try { localStorage.setItem('site-theme', next); } catch (e) {}
-      });
+      // 复用官网统一的导航 / 页脚（含插件切换器与主题按钮）
+      var A = window.PandaSite;
+      if (!A) return;
+      var nav = document.getElementById('siteNav');
+      var foot = document.getElementById('siteFooter');
+      if (nav) nav.innerHTML = A.nav('');
+      if (foot) foot.innerHTML = A.footer();
+      A.initTheme();
     })();
 
     (function () {

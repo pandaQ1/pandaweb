@@ -1,0 +1,10 @@
+# 本地临时产物
+.tmp/
+.inspect/
+node_modules/
+*.tar.gz
+*.log
+
+# 系统
+.DS_Store
+Thumbs.db
