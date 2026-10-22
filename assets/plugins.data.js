@@ -8,7 +8,7 @@ window.PANDA_SITE = {
   "archiveUrl": "https://github.com/pandaQ1/pandaweb",
   "accountPage": "account.html",
   "privacyPage": "privacy.html",
-  "generatedAt": "2026-10-22T07:18:27.768Z",
+  "generatedAt": "2026-10-22T07:23:22.792Z",
   "archive": "D:\\桌面\\ai压缩包"
 };
 window.PANDA_PLUGINS = [
@@ -187,6 +187,16 @@ window.PANDA_PLUGINS = [
           ]
         }
       ]
+    },
+    "stores": {
+      "edge": {
+        "url": null,
+        "status": "审核中 · 上架后这里变成一键安装"
+      },
+      "chrome": {
+        "url": null,
+        "status": "规划中 · 先用 zip 安装"
+      }
     },
     "download": {
       "version": "2.19.4",
@@ -369,6 +379,16 @@ window.PANDA_PLUGINS = [
         }
       ]
     },
+    "stores": {
+      "edge": {
+        "url": null,
+        "status": "待上架 · 先用 zip 安装"
+      },
+      "chrome": {
+        "url": null,
+        "status": "规划中 · 先用 zip 安装"
+      }
+    },
     "download": {
       "version": "2.1.0",
       "file": "downloads/video-control-v2.1.0.zip",
@@ -506,6 +526,16 @@ window.PANDA_PLUGINS = [
           ]
         }
       ]
+    },
+    "stores": {
+      "edge": {
+        "url": null,
+        "status": "待上架 · 商店素材已就绪"
+      },
+      "chrome": {
+        "url": null,
+        "status": "规划中 · 先用 zip 安装"
+      }
     },
     "download": {
       "version": "1.1.9",
@@ -697,6 +727,16 @@ window.PANDA_PLUGINS = [
           ]
         }
       ]
+    },
+    "stores": {
+      "edge": {
+        "url": null,
+        "status": "待上架 · 先用 zip 安装"
+      },
+      "chrome": {
+        "url": null,
+        "status": "规划中 · 先用 zip 安装"
+      }
     },
     "download": {
       "version": "1.0.8",
