@@ -8,7 +8,7 @@ window.PANDA_SITE = {
   "archiveUrl": "https://github.com/pandaQ1/pandaweb",
   "accountPage": "account.html",
   "privacyPage": "privacy.html",
-  "generatedAt": "2026-10-22T08:22:34.490Z",
+  "generatedAt": "2026-11-12T08:00:28.712Z",
   "archive": "D:\\桌面\\ai压缩包"
 };
 window.PANDA_PLUGINS = [
@@ -23,11 +23,11 @@ window.PANDA_PLUGINS = [
     "summary": "按词汇等级自动标记生词，悬停秒看释义，右键查词根词缀，整页翻译多级降级，生词本 + 艾宾浩斯背单词闭环，还能接管 YouTube 字幕逐句翻译。",
     "kind": "reading",
     "badges": [
+      "内置 PDF 逐词高亮",
       "8 级词库 · 10,972 词",
       "悬停 / 右键释义",
       "整页翻译 · 多服务降级",
-      "艾宾浩斯背单词",
-      "YouTube 字幕接管"
+      "艾宾浩斯背单词"
     ],
     "membership": {
       "required": true,
@@ -35,6 +35,12 @@ window.PANDA_PLUGINS = [
       "note": "安装与升级免费；词库高亮、释义卡片、整页翻译、生词本与背单词等增强功能需登录 Panda 账号并激活 PRO 后启用。账号、兑换与会员页面不受门禁影响。"
     },
     "features": [
+      {
+        "icon": "📄",
+        "title": "内置 PDF 阅读器",
+        "desc": "直接打开在线/本地 PDF 取词：按 PDF 自身文本几何出框，任何缩放比例都逐词贴合，换行、双栏、代码与图注都能准确高亮，选中即看释义、可加生词本。",
+        "tag": "逐词精确高亮"
+      },
       {
         "icon": "🖍️",
         "title": "等级词库高亮",
@@ -64,12 +70,6 @@ window.PANDA_PLUGINS = [
         "title": "生词本 + 背单词",
         "desc": "右键一键收藏生词（自动保存语境句）；独立背单词模块按每日强度学习，艾宾浩斯间隔复习（认识 / 模糊 / 忘记三键反馈），数据统计曲线。",
         "tag": "艾宾浩斯"
-      },
-      {
-        "icon": "🔊",
-        "title": "TTS 发音自定义",
-        "desc": "本地离线 TTS 或在线引擎（有道 / 谷歌 / OpenAI 兼容接口），语速可调，自动降级策略保证离线也能发音；日 / 夜主题跟随设置同步。",
-        "tag": "本地优先"
       }
     ],
     "permissions": [
@@ -95,7 +95,7 @@ window.PANDA_PLUGINS = [
       }
     ],
     "privacy": {
-      "updated": "2026-10-22",
+      "updated": "2026-11-12",
       "callout": "核心原则：本扩展没有自己的服务器，不收集、不上传任何用户行为数据。生词本、复习记录、设置全部保存在你的浏览器本地。只有当你主动触发生词查询 / 翻译 / 发音时，最少的必要文本才会直接发往对应的词典或翻译接口。",
       "sections": [
         {
@@ -200,14 +200,14 @@ window.PANDA_PLUGINS = [
     },
     "minBrowser": "111",
     "download": {
-      "version": "2.19.4",
-      "file": "downloads/word-highlighter-v2.19.4.zip",
+      "version": "2.26.1",
+      "file": "downloads/word-highlighter-v2.26.1.zip",
       "latestFile": "downloads/word-highlighter-latest.zip",
-      "sizeBytes": 503356,
-      "sizeText": "492 KB",
-      "date": "2026-10-20",
-      "sha256": "77ea3866e635e720f6b341cf02765583729b27e501ee408c92718d29be649d41",
-      "source": "Panda-生词高亮-翻译助手-v2.19.4.zip"
+      "sizeBytes": 6432992,
+      "sizeText": "6.13 MB",
+      "date": "2026-11-12",
+      "sha256": "13d3f01fda56dac52e0f77e91927d661152cbba9dad114b831376a1abd7bebc6",
+      "source": "Panda-生词高亮-翻译助手-v2.26.1.zip"
     },
     "icon": null
   },
@@ -541,14 +541,14 @@ window.PANDA_PLUGINS = [
     },
     "minBrowser": "111",
     "download": {
-      "version": "1.1.9",
-      "file": "downloads/bilibili-helper-v1.1.9.zip",
+      "version": "1.2.0",
+      "file": "downloads/bilibili-helper-v1.2.0.zip",
       "latestFile": "downloads/bilibili-helper-latest.zip",
-      "sizeBytes": 98989,
-      "sizeText": "97 KB",
-      "date": "2026-10-21",
-      "sha256": "73b935076f4c16a00b0d0233cd7697a84af2c64ac927ea900cfb073256924ae3",
-      "source": "Panda-哔哩哔哩助手-v1.1.9.zip"
+      "sizeBytes": 108346,
+      "sizeText": "106 KB",
+      "date": "2026-11-08",
+      "sha256": "6d3524aaf9ff453f68196ee0f56c67dbd81f8c700b5a4e9010476be85e662e7f",
+      "source": "Panda-哔哩哔哩助手-v1.2.0.zip"
     },
     "icon": null
   },
@@ -743,14 +743,14 @@ window.PANDA_PLUGINS = [
     },
     "minBrowser": "109",
     "download": {
-      "version": "1.0.8",
-      "file": "downloads/bilibili-downloader-v1.0.8.zip",
+      "version": "1.2.0",
+      "file": "downloads/bilibili-downloader-v1.2.0.zip",
       "latestFile": "downloads/bilibili-downloader-latest.zip",
-      "sizeBytes": 109792,
-      "sizeText": "107 KB",
-      "date": "2026-10-22",
-      "sha256": "16f62118f8af4362f1018441741a76bd334ec67831d9df708b22f0bfd7a29cb1",
-      "source": "B站视频下载器-Panda-v1.0.8.zip"
+      "sizeBytes": 128049,
+      "sizeText": "125 KB",
+      "date": "2026-10-26",
+      "sha256": "d96198388360b3fb73806868c0da29704e81b488fb43cb9ac90630787d88353f",
+      "source": "B站视频下载器-Panda-v1.2.0.zip"
     },
     "icon": null
   }
