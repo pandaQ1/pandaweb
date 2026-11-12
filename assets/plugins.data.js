@@ -8,7 +8,7 @@ window.PANDA_SITE = {
   "archiveUrl": "https://github.com/pandaQ1/pandaweb",
   "accountPage": "account.html",
   "privacyPage": "privacy.html",
-  "generatedAt": "2026-11-12T08:46:07.449Z",
+  "generatedAt": "2026-11-12T08:57:26.879Z",
   "archive": "D:\\桌面\\ai压缩包"
 };
 window.PANDA_PLUGINS = [
@@ -200,14 +200,14 @@ window.PANDA_PLUGINS = [
     },
     "minBrowser": "111",
     "download": {
-      "version": "2.26.2",
-      "file": "downloads/word-highlighter-v2.26.2.zip",
+      "version": "2.26.3",
+      "file": "downloads/word-highlighter-v2.26.3.zip",
       "latestFile": "downloads/word-highlighter-latest.zip",
-      "sizeBytes": 6439790,
+      "sizeBytes": 6440088,
       "sizeText": "6.14 MB",
       "date": "2026-11-12",
-      "sha256": "731629c22b6245900a9994496010a5b6f29bd6a6077422294cd48e54813a07e8",
-      "source": "Panda-生词高亮-翻译助手-v2.26.2.zip"
+      "sha256": "36b21b753213737793b22371c4c873183b69fcd87576c143f85cd79638f356f8",
+      "source": "Panda-生词高亮-翻译助手-v2.26.3.zip"
     },
     "icon": null
   },
