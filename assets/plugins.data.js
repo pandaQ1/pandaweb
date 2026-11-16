@@ -8,7 +8,7 @@ window.PANDA_SITE = {
   "archiveUrl": "https://github.com/pandaQ1/pandaweb",
   "accountPage": "account.html",
   "privacyPage": "privacy.html",
-  "generatedAt": "2026-11-16T15:52:46.570Z",
+  "generatedAt": "2026-11-16T16:27:20.826Z",
   "archive": "D:\\桌面\\ai压缩包"
 };
 window.PANDA_PLUGINS = [
@@ -50,7 +50,7 @@ window.PANDA_PLUGINS = [
       {
         "icon": "🖱️",
         "title": "悬停简译 + 右键释义卡片",
-        "desc": "鼠标悬停即弹出简略翻译；右键（或按 A 键）打开详细卡片——音标、释义、词根词缀、关联词汇，三级词典兜底 + AI 兜底，点击即发音。",
+        "desc": "鼠标悬停即弹出简略翻译；右键（或按 A 键）打开详细卡片——顶部直接标出这个词属于哪一档（小学 / 初中 / 高中 / 四级 / 六级 / 考研 / 托福 / SAT，词库没有的标「词库外」），另有音标、释义、词根词缀、关联词汇，三级词典兜底 + AI 兜底，点击即发音。",
         "tag": "词根词缀"
       },
       {
@@ -200,14 +200,14 @@ window.PANDA_PLUGINS = [
     },
     "minBrowser": "111",
     "download": {
-      "version": "2.34.2",
-      "file": "downloads/word-highlighter-v2.34.2.zip",
+      "version": "2.35.0",
+      "file": "downloads/word-highlighter-v2.35.0.zip",
       "latestFile": "downloads/word-highlighter-latest.zip",
-      "sizeBytes": 6473191,
+      "sizeBytes": 6474573,
       "sizeText": "6.17 MB",
-      "date": "2026-11-16",
-      "sha256": "c008021b8a60bb4890b0603892027c1482b17328b840411d7eb2e016cef3b048",
-      "source": "Panda-生词高亮-翻译助手-v2.34.2.zip"
+      "date": "2026-11-17",
+      "sha256": "d4f9f083d748605f2dd339bbbfff9fe1120df42698739319477bf5963ab626af",
+      "source": "Panda-生词高亮-翻译助手-v2.35.0.zip"
     },
     "icon": null
   },
