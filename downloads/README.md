@@ -5,14 +5,14 @@
 
 | 文件 | 插件 | 版本 | 大小 | 打包日期 |
 | --- | --- | --- | --- | --- |
-| `word-highlighter-v2.35.0.zip` | Panda 生词高亮 & 翻译助手 | v2.35.0 | 6.17 MB | 2026-11-17 |
+| `word-highlighter-v2.36.0.zip` | Panda 生词高亮 & 翻译助手 | v2.36.0 | 6.17 MB | 2026-11-17 |
 | `video-control-v2.1.0.zip` | Panda视频控制&录屏截图 | v2.1.0 | 88 KB | 2026-10-18 |
 | `bilibili-helper-v1.2.0.zip` | Panda 哔哩哔哩助手 | v1.2.0 | 106 KB | 2026-11-08 |
 | `bilibili-downloader-v1.2.4.zip` | B站视频下载器 · Panda | v1.2.4 | 405 KB | 2026-11-16 |
 
 ## SHA-256
 
-- **Panda 生词高亮 & 翻译助手** v2.35.0：`d4f9f083d748605f2dd339bbbfff9fe1120df42698739319477bf5963ab626af`
+- **Panda 生词高亮 & 翻译助手** v2.36.0：`6586d65f8d939a6eee6f6ab5d174f1910b8fa8e0c160ad956de5bf6542ea38bf`
 - **Panda视频控制&录屏截图** v2.1.0：`890963c874cbd1d2b9e934d490e11f74c456dcf654212c6aa60805d99702fb7b`
 - **Panda 哔哩哔哩助手** v1.2.0：`6d3524aaf9ff453f68196ee0f56c67dbd81f8c700b5a4e9010476be85e662e7f`
 - **B站视频下载器 · Panda** v1.2.4：`2299336b383629e822c4c09923927aa85db0ca1133e5d4a0e96b0caccafc3615`

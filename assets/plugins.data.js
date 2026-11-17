@@ -8,7 +8,7 @@ window.PANDA_SITE = {
   "archiveUrl": "https://github.com/pandaQ1/pandaweb",
   "accountPage": "account.html",
   "privacyPage": "privacy.html",
-  "generatedAt": "2026-11-16T16:27:20.826Z",
+  "generatedAt": "2026-11-17T02:29:05.117Z",
   "archive": "D:\\桌面\\ai压缩包"
 };
 window.PANDA_PLUGINS = [
@@ -25,6 +25,7 @@ window.PANDA_PLUGINS = [
     "badges": [
       "内置 PDF 逐词高亮",
       "8 级词库 · 10,972 词",
+      "变形词按原形匹配",
       "悬停 / 右键释义",
       "整页翻译 · 多服务降级",
       "艾宾浩斯背单词"
@@ -44,7 +45,7 @@ window.PANDA_PLUGINS = [
       {
         "icon": "🖍️",
         "title": "等级词库高亮",
-        "desc": "小学 / 初中 / 高中 / 四级 / 六级 / 考研 / 托福 / SAT 八级词库（共 10,972 词，离线内置），按所选等级精准高亮，白名单判定不误标人名与俚语。",
+        "desc": "小学 / 初中 / 高中 / 四级 / 六级 / 考研 / 托福 / SAT 八级词库（共 10,972 词，离线内置），按所选等级精准高亮，白名单判定不误标人名与俚语。词库只收原形，designed / employed / running 这类变形词会跟着原形一起高亮（可在设置「界面 → 变形词按原形匹配」关掉），不再出现「原形亮、变形词不亮」的漏词。",
         "tag": "离线词库"
       },
       {
@@ -200,14 +201,14 @@ window.PANDA_PLUGINS = [
     },
     "minBrowser": "111",
     "download": {
-      "version": "2.35.0",
-      "file": "downloads/word-highlighter-v2.35.0.zip",
+      "version": "2.36.0",
+      "file": "downloads/word-highlighter-v2.36.0.zip",
       "latestFile": "downloads/word-highlighter-latest.zip",
-      "sizeBytes": 6474573,
+      "sizeBytes": 6473298,
       "sizeText": "6.17 MB",
       "date": "2026-11-17",
-      "sha256": "d4f9f083d748605f2dd339bbbfff9fe1120df42698739319477bf5963ab626af",
-      "source": "Panda-生词高亮-翻译助手-v2.35.0.zip"
+      "sha256": "6586d65f8d939a6eee6f6ab5d174f1910b8fa8e0c160ad956de5bf6542ea38bf",
+      "source": "Panda-生词高亮-翻译助手-v2.36.0.zip"
     },
     "icon": null
   },
